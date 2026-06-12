@@ -64,18 +64,34 @@
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
       <a href="#hero" class="flex items-center">
-        <!-- Zoho 4-square logo inline SVG — no file dependency -->
-        <svg height="36" viewBox="0 0 80 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Zoho">
-          <!-- Red top-left -->
-          <rect x="0" y="0" width="17" height="17" rx="3" fill="#E42527"/>
-          <!-- Blue top-right -->
-          <rect x="19" y="0" width="17" height="17" rx="3" fill="#226DB4"/>
-          <!-- Yellow bottom-left -->
-          <rect x="0" y="19" width="17" height="17" rx="3" fill="#F9B21D"/>
-          <!-- Green bottom-right -->
-          <rect x="19" y="19" width="17" height="17" rx="3" fill="#089949"/>
+        <!-- Zoho logo: 4 interlocking outlined squares + wordmark (inline SVG, no file needed) -->
+        <svg height="40" viewBox="0 0 172 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Zoho" style="display:block">
+          <defs>
+            <!-- Clip each square to its own bounding rotated box for interlocking -->
+            <clipPath id="cl-r"><rect x="2"  y="0"  width="52" height="46" rx="0"/></clipPath>
+            <clipPath id="cl-g"><rect x="35" y="0"  width="52" height="46" rx="0"/></clipPath>
+            <clipPath id="cl-b"><rect x="82" y="0"  width="52" height="46" rx="0"/></clipPath>
+            <clipPath id="cl-y"><rect x="115" y="0" width="52" height="46" rx="0"/></clipPath>
+          </defs>
+          <!-- Red — leftmost, tilted left -->
+          <rect x="6"   y="3"  width="44" height="38" rx="8" fill="none" stroke="#E42527" stroke-width="6.5" transform="rotate(-10 28 22)"/>
+          <!-- Green — second, slight left tilt, drawn in two halves for interlock -->
+          <!-- Back half of green (behind red) -->
+          <rect x="38"  y="1"  width="44" height="38" rx="8" fill="none" stroke="#089949" stroke-width="6.5" transform="rotate(-4 60 20)" clip-path="url(#cl-g)" style="clip-path:inset(0 0 50% 0 round 0)"/>
+          <!-- Front half of green (in front of red) -->
+          <rect x="38"  y="1"  width="44" height="38" rx="8" fill="none" stroke="#089949" stroke-width="6.5" transform="rotate(-4 60 20)"/>
+          <!-- Red redrawn on top (right side only) to cover green's front -->
+          <rect x="6"   y="3"  width="44" height="38" rx="8" fill="none" stroke="#E42527" stroke-width="6.5" transform="rotate(-10 28 22)" clip-path="url(#cl-r)" style="clip-path:inset(0 0 0 50% round 0)"/>
+          <!-- Blue — third -->
+          <rect x="84"  y="1"  width="44" height="38" rx="8" fill="none" stroke="#226DB4" stroke-width="6.5" transform="rotate(4 106 20)"/>
+          <!-- Green redrawn right side over blue left side -->
+          <rect x="38"  y="1"  width="44" height="38" rx="8" fill="none" stroke="#089949" stroke-width="6.5" transform="rotate(-4 60 20)" clip-path="url(#cl-g)" style="clip-path:inset(0 0 0 62% round 0)"/>
+          <!-- Yellow — rightmost, tilted right -->
+          <rect x="120" y="3"  width="44" height="38" rx="8" fill="none" stroke="#F9B21D" stroke-width="6.5" transform="rotate(10 142 22)"/>
+          <!-- Blue redrawn right side over yellow left side -->
+          <rect x="84"  y="1"  width="44" height="38" rx="8" fill="none" stroke="#226DB4" stroke-width="6.5" transform="rotate(4 106 20)" clip-path="url(#cl-b)" style="clip-path:inset(0 0 0 62% round 0)"/>
           <!-- ZOHO wordmark -->
-          <text x="44" y="25" font-family="Inter,Arial,sans-serif" font-weight="700" font-size="15" fill="#1A1A1A" letter-spacing="0.5">ZOHO</text>
+          <text x="86" y="62" text-anchor="middle" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="13" letter-spacing="6" fill="#111111">ZOHO</text>
         </svg>
       </a>
     </div>
