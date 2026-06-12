@@ -35,6 +35,7 @@
     .section-reveal { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease,transform 0.7s ease; }
     .section-reveal.visible { opacity:1; transform:translateY(0); }
     .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
+    .beta-scroll::-webkit-scrollbar { display:none; }
     .faq-answer.open { max-height:400px; }
     input:focus, select:focus, textarea:focus { outline:none; border-color:#089949; box-shadow:0 0 0 3px rgba(8,153,73,0.1); }
     /* Zoholics CTA button style */
@@ -355,11 +356,11 @@
       <p class="text-green-200 text-lg max-w-2xl mx-auto">These pioneering institutions trusted Zoho Classes before the world knew about it. Their feedback, courage, and commitment helped shape every feature you'll see today.</p>
     </div>
 
-    <!-- Cards grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Cards: horizontal scroll on mobile, 4-col grid on desktop -->
+    <div class="lg:grid lg:grid-cols-4 lg:gap-6 beta-scroll flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory lg:overflow-visible lg:pb-0" style="-webkit-overflow-scrolling:touch;scrollbar-width:none" onmouseover="" >
 
       <!-- Card 1: Orlando -->
-      <div class="group rounded-2xl overflow-hidden shadow-xl card-hover" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)">
+      <div class="group rounded-2xl overflow-hidden shadow-xl card-hover flex-shrink-0 snap-center lg:flex-shrink lg:w-auto" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);width:78vw;max-width:320px">
         <div class="relative overflow-hidden" style="height:220px">
           <img src="beta-orlando.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"  alt="Zoho Classes visit at Bible school, Orlando" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
           <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 60%)"></div>
@@ -372,7 +373,7 @@
       </div>
 
       <!-- Card 2: Commissioner of Technical Education -->
-      <div class="group rounded-2xl overflow-hidden shadow-xl card-hover" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)">
+      <div class="group rounded-2xl overflow-hidden shadow-xl card-hover flex-shrink-0 snap-center lg:flex-shrink lg:w-auto" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);width:78vw;max-width:320px">
         <div class="relative overflow-hidden" style="height:220px">
           <img src="beta-commissioner.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"  alt="Meeting with Commissioner of Technical Education" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
           <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 60%)"></div>
@@ -384,7 +385,7 @@
       </div>
 
       <!-- Card 3: AIIMS Bhubaneswar -->
-      <div class="group rounded-2xl overflow-hidden shadow-xl card-hover" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)">
+      <div class="group rounded-2xl overflow-hidden shadow-xl card-hover flex-shrink-0 snap-center lg:flex-shrink lg:w-auto" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);width:78vw;max-width:320px">
         <div class="relative overflow-hidden" style="height:220px">
           <img src="beta-aiims.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"  alt="AIIMS Bhubaneswar faculty session" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
           <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 60%)"></div>
@@ -396,7 +397,7 @@
       </div>
 
       <!-- Card 4: CityDance Detroit -->
-      <div class="group rounded-2xl overflow-hidden shadow-xl card-hover" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)">
+      <div class="group rounded-2xl overflow-hidden shadow-xl card-hover flex-shrink-0 snap-center lg:flex-shrink lg:w-auto" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);width:78vw;max-width:320px">
         <div class="relative overflow-hidden" style="height:220px">
           <img src="beta-citydance.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"  alt="CityDance studio Detroit team" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
           <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 60%)"></div>
