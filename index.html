@@ -18,27 +18,36 @@
   </script>
   <style>
     body { font-family: 'Inter', sans-serif; }
+    /* Zoholics-style gradient: teal top → warm peach bottom */
     .gradient-hero {
-      background:
-        radial-gradient(ellipse 70% 80% at 95% 10%, rgba(8,153,73,0.10) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 60% at 5%  90%, rgba(249,178,29,0.09) 0%, transparent 55%),
-        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(8,153,73,0.04) 0%, transparent 70%),
-        #ffffff;
+      background: linear-gradient(160deg, #B8E0DC 0%, #D6EEE8 20%, #EEF7F5 45%, #FDF5EC 70%, #F7E4C8 100%);
+      min-height: 100vh;
     }
-    .glass { background:rgba(255,255,255,0.75); backdrop-filter:blur(16px); border:1px solid rgba(8,153,73,0.15); box-shadow:0 4px 24px rgba(8,153,73,0.08); }
-    .nav-white { background:rgba(255,255,255,0.95)!important; box-shadow:0 1px 20px rgba(0,0,0,0.07); }
-    .nav-scrolled { background:rgba(255,255,255,0.97)!important; box-shadow:0 2px 24px rgba(0,0,0,0.10); }
-    .hero-pill { background:rgba(8,153,73,0.08); border:1px solid rgba(8,153,73,0.20); }
-    .hero-pill-yellow { background:rgba(249,178,29,0.10); border:1px solid rgba(249,178,29,0.30); }
+    .glass { background:rgba(255,255,255,0.80); backdrop-filter:blur(16px); border:1px solid rgba(255,255,255,0.6); box-shadow:0 4px 24px rgba(0,0,0,0.08); }
+    /* Navbar transparent over gradient, white when scrolled */
+    .nav-transparent { background:transparent!important; box-shadow:none!important; }
+    .nav-white { background:rgba(255,255,255,0.96)!important; box-shadow:0 1px 20px rgba(0,0,0,0.08)!important; }
+    .hero-pill { background:rgba(255,255,255,0.70); border:1px solid rgba(255,255,255,0.9); backdrop-filter:blur(8px); }
+    .hero-pill-yellow { background:rgba(249,178,29,0.15); border:1px solid rgba(249,178,29,0.40); }
     .by-invitation { background:linear-gradient(135deg,#E8442B,#F47B20); }
     .card-hover { transition:transform 0.25s ease,box-shadow 0.25s ease; }
-    .card-hover:hover { transform:translateY(-4px); box-shadow:0 20px 48px rgba(8,153,73,0.15); }
+    .card-hover:hover { transform:translateY(-4px); box-shadow:0 20px 48px rgba(0,0,0,0.12); }
     .section-reveal { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease,transform 0.7s ease; }
     .section-reveal.visible { opacity:1; transform:translateY(0); }
-    .qr-placeholder { background:repeating-linear-gradient(0deg,#f3f4f6 0,#f3f4f6 2px,transparent 2px,transparent 8px),repeating-linear-gradient(90deg,#f3f4f6 0,#f3f4f6 2px,transparent 2px,transparent 8px); border:1px solid #e5e7eb; }
     .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.3s ease; }
     .faq-answer.open { max-height:400px; }
     input:focus, select:focus, textarea:focus { outline:none; border-color:#089949; box-shadow:0 0 0 3px rgba(8,153,73,0.1); }
+    /* Zoholics CTA button style */
+    .btn-zoholics { background:#C8362E; border-radius:8px; letter-spacing:0.04em; text-transform:uppercase; font-weight:800; }
+    .btn-zoholics:hover { background:#B02E27; }
+    /* Warm section bg */
+    .section-warm { background:linear-gradient(180deg,#FDF8F2 0%,#FBF3E8 100%); }
+    .section-teal { background:linear-gradient(180deg,#EEF8F6 0%,#E2F3F0 100%); }
+    /* Zoho logo squares */
+    .zoho-logo-r { background:#E42527; }
+    .zoho-logo-b { background:#226DB4; }
+    .zoho-logo-g { background:#089949; }
+    .zoho-logo-y { background:#F9B21D; }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Event","name":"Zoho Classes Education Innovation Workshop 2026","startDate":"2026-07-13T10:00:00+05:30","endDate":"2026-07-13T17:00:00+05:30","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"To Be Announced","address":{"@type":"PostalAddress","addressCountry":"IN"}},"organizer":{"@type":"Organization","name":"Zoho Classes","url":"https://www.zoho.com/classes/"},"offers":{"@type":"Offer","price":"0","priceCurrency":"INR","availability":"https://schema.org/InStock"},"description":"A full-day workshop on AI-Powered Teaching, Outcome-Based Education, CO-PO Mapping, and Academic Automation for higher education leaders."}
@@ -46,106 +55,147 @@
 </head>
 <body class="bg-white text-gray-900 antialiased">
 
-<!-- ===== NAVBAR ===== -->
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 nav-white border-b border-gray-100">
+<!-- ===== NAVBAR (Zoholics style) ===== -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 nav-transparent">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:#089949">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/></svg>
-      </div>
-      <span class="text-gray-900 font-bold text-lg tracking-tight">Zoho Classes</span>
+    <!-- Zoho logo (4-colour squares like zoho.com) -->
+    <div class="flex items-center gap-2.5">
+      <button id="menu-btn-icon" class="p-1.5 rounded-lg hover:bg-white/30 transition-colors md:hidden" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a href="#hero" class="flex items-center gap-2">
+        <!-- Zoho coloured-squares logo -->
+        <svg width="38" height="28" viewBox="0 0 38 28" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0"  y="0"  width="17" height="12" rx="2" fill="#E42527"/>
+          <rect x="19" y="0"  width="19" height="12" rx="2" fill="#226DB4"/>
+          <rect x="0"  y="14" width="19" height="14" rx="2" fill="#089949"/>
+          <rect x="21" y="14" width="17" height="14" rx="2" fill="#F9B21D"/>
+        </svg>
+        <div class="leading-none">
+          <p class="font-black text-gray-900 text-base tracking-tight">ZOHO</p>
+          <p class="text-gray-500 text-[10px] font-semibold uppercase tracking-widest -mt-0.5">Classes</p>
+        </div>
+      </a>
     </div>
+    <!-- Desktop links -->
     <div class="hidden md:flex items-center gap-7">
-      <a href="#agenda" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">Agenda</a>
-      <a href="#speakers" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">Speakers</a>
-      <a href="#outcomes" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">What You'll Learn</a>
-      <a href="#register" class="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">Register</a>
+      <a href="#agenda"   class="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">Agenda</a>
+      <a href="#speakers" class="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">Speakers</a>
+      <a href="#product"  class="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">Product</a>
+      <a href="#register" class="text-gray-700 hover:text-gray-900 text-sm font-medium transition-colors">Register</a>
     </div>
-    <a href="#register" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:scale-105" style="background:#089949;box-shadow:0 2px 12px rgba(8,153,73,0.3)">Reserve My Seat</a>
-    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
+    <!-- SIGN IN / CTA -->
+    <div class="flex items-center gap-3">
+      <span class="hidden sm:block text-sm font-semibold text-gray-700 tracking-wide cursor-pointer hover:text-gray-900">SIGN IN</span>
+      <a href="#register" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold text-white btn-zoholics transition-all hover:scale-105 shadow-md">Reserve Seat</a>
+    </div>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 pt-2 border-t border-gray-100 mt-3 space-y-2">
-    <a href="#agenda" class="block text-gray-700 text-sm font-medium py-2" onclick="closeMobileMenu()">Agenda</a>
-    <a href="#speakers" class="block text-gray-700 text-sm font-medium py-2" onclick="closeMobileMenu()">Speakers</a>
-    <a href="#outcomes" class="block text-gray-700 text-sm font-medium py-2" onclick="closeMobileMenu()">What You'll Learn</a>
-    <a href="#register" class="mt-2 text-center px-4 py-2.5 rounded-lg text-sm font-semibold text-white block" style="background:#089949" onclick="closeMobileMenu()">Reserve My Seat</a>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden mx-4 mt-2 rounded-2xl overflow-hidden shadow-xl border border-white/60" style="background:rgba(255,255,255,0.95)">
+    <div class="px-5 py-4 space-y-1">
+      <a href="#agenda"   class="block text-gray-800 text-sm font-semibold py-2.5 border-b border-gray-100" onclick="this.closest('#mobile-menu').classList.add('hidden')">Agenda</a>
+      <a href="#speakers" class="block text-gray-800 text-sm font-semibold py-2.5 border-b border-gray-100" onclick="this.closest('#mobile-menu').classList.add('hidden')">Speakers</a>
+      <a href="#product"  class="block text-gray-800 text-sm font-semibold py-2.5 border-b border-gray-100" onclick="this.closest('#mobile-menu').classList.add('hidden')">Product</a>
+      <a href="#government" class="block text-gray-800 text-sm font-semibold py-2.5 border-b border-gray-100" onclick="this.closest('#mobile-menu').classList.add('hidden')">Government</a>
+      <a href="#register" class="mt-3 w-full text-center py-3 rounded-xl text-sm font-bold text-white btn-zoholics block" onclick="this.closest('#mobile-menu').classList.add('hidden')">Reserve My Seat</a>
+    </div>
   </div>
 </nav>
 
-<!-- ===== HERO ===== -->
-<section class="relative flex items-start gradient-hero overflow-hidden pt-20 pb-16" id="hero">
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full" style="background:radial-gradient(circle,rgba(8,153,73,0.09) 0%,transparent 65%)"></div>
-    <div class="absolute -bottom-24 -left-24 w-[500px] h-[500px] rounded-full" style="background:radial-gradient(circle,rgba(249,178,29,0.10) 0%,transparent 65%)"></div>
-    <svg class="absolute inset-0 w-full h-full" style="opacity:0.035" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#089949"/></pattern></defs><rect width="100%" height="100%" fill="url(#dots)"/></svg>
+<!-- ===== HERO (Zoholics style) ===== -->
+<section class="relative gradient-hero overflow-hidden" id="hero">
+  <!-- Decorative blobs matching Zoholics warmth -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-0 left-0 w-72 h-72 rounded-full" style="background:radial-gradient(circle,rgba(8,153,73,0.08) 0%,transparent 70%);transform:translate(-30%,-30%)"></div>
+    <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full" style="background:radial-gradient(circle,rgba(249,178,29,0.12) 0%,transparent 65%);transform:translate(30%,30%)"></div>
+    <div class="absolute top-1/2 left-1/2 w-[600px] h-[600px] rounded-full" style="background:radial-gradient(circle,rgba(34,109,180,0.04) 0%,transparent 70%);transform:translate(-50%,-50%)"></div>
   </div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
-    <div class="grid lg:grid-cols-2 gap-10 items-start">
-      <!-- Left -->
-      <div class="space-y-7 section-reveal">
-        <div class="flex flex-wrap gap-3">
-          <span class="by-invitation inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-white tracking-wide uppercase">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+    <!-- Mobile-first centered hero (Zoholics style) -->
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <!-- LEFT: Event identity (centered on mobile, left on desktop) -->
+      <div class="text-center lg:text-left section-reveal">
+
+        <!-- Badges row -->
+        <div class="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
+          <span class="by-invitation inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-white tracking-wide uppercase shadow-sm">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             By Invitation Only
           </span>
-          <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold text-green-700 bg-green-50 border border-green-200">
+          <span class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-white/70 text-green-800 border border-green-200 shadow-sm">
             <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
             Registration Open
           </span>
         </div>
-        <div>
-          <p class="text-green-700 font-semibold text-sm uppercase tracking-widest mb-3">Zoho Classes Education Innovation Workshop 2026</p>
-          <h1 class="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-black text-gray-900 leading-tight">
-            Transform Education with
-            <span class="block" style="background:linear-gradient(90deg,#089949,#0DAB54);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">AI-Powered Teaching</span>
-          </h1>
+
+        <!-- Sub-label -->
+        <p class="text-sm font-bold uppercase tracking-widest mb-3" style="color:#089949">Zoho Classes · Education Innovation Workshop</p>
+
+        <!-- Big title — Zoholics typography -->
+        <h1 class="font-black leading-none tracking-tight mb-2" style="font-size:clamp(2.6rem,7vw,4.5rem);color:#1A1A1A">
+          Transform Education
+        </h1>
+        <h1 class="font-black leading-none tracking-tight mb-6" style="font-size:clamp(2.6rem,7vw,4.5rem);background:linear-gradient(90deg,#089949 0%,#226DB4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
+          with AI-Powered Teaching
+        </h1>
+
+        <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">Join academic leaders from across India to explore AI, OBE, CO-PO Mapping, Assessments, and Academic Automation reshaping the future of education.</p>
+
+        <!-- Date · Location · Time pills (Zoholics icon+text style) -->
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3 justify-center lg:justify-start mb-8">
+          <div class="inline-flex items-center gap-2 hero-pill rounded-2xl px-5 py-3 shadow-sm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E42527" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="text-gray-800 font-bold text-sm">July 13, 2026</span>
+          </div>
+          <div class="inline-flex items-center gap-2 hero-pill rounded-2xl px-5 py-3 shadow-sm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E42527" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span class="text-gray-800 font-bold text-sm">Chennai, Tamil Nadu</span>
+          </div>
+          <div class="inline-flex items-center gap-2 hero-pill rounded-2xl px-5 py-3 shadow-sm">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#226DB4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="text-gray-800 font-bold text-sm">10:00 AM – 5:00 PM IST</span>
+          </div>
         </div>
-        <p class="text-gray-600 text-lg leading-relaxed max-w-xl">Join academic leaders from across India to explore how AI, Outcome-Based Education, Microlearning, Assessments, and Academic Automation are reshaping the future of education.</p>
-        <div class="flex flex-wrap gap-3">
-          <div class="flex items-center gap-2 hero-pill rounded-xl px-4 py-2.5">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#089949" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <span class="text-gray-800 text-sm font-semibold">July 13, 2026</span>
-          </div>
-          <div class="flex items-center gap-2 hero-pill rounded-xl px-4 py-2.5">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#089949" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span class="text-gray-800 text-sm font-semibold">10:00 AM – 5:00 PM</span>
-          </div>
-          <div class="flex items-center gap-2 hero-pill rounded-xl px-4 py-2.5">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#089949" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-            <span class="text-gray-800 text-sm font-semibold">In-Person Workshop</span>
-          </div>
-          <div class="flex items-center gap-2 hero-pill-yellow rounded-xl px-4 py-2.5">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-            <span class="text-gray-800 text-sm font-semibold">Lunch Included</span>
-          </div>
-          <div class="flex items-center gap-2 hero-pill rounded-xl px-4 py-2.5">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-            <span class="text-gray-800 text-sm font-semibold">Certificate Provided</span>
-          </div>
-        </div>
-        <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-yellow-300 bg-yellow-50">
+
+        <!-- License badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl mb-8 mx-auto lg:mx-0" style="background:rgba(249,178,29,0.15);border:1px solid rgba(249,178,29,0.45)">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="#D97706"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" stroke="#D97706" fill="none" stroke-width="1.5"/></svg>
-          <span class="text-yellow-800 text-sm font-semibold">License with Credits Included</span>
+          <span class="text-yellow-900 text-sm font-bold">License with Credits Included · Free</span>
         </div>
-        <div class="flex flex-wrap gap-4">
-          <a href="#register" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white transition-all duration-200 hover:opacity-90 hover:scale-105 hover:shadow-2xl" style="background:#089949;box-shadow:0 4px 24px rgba(8,153,73,0.35)">
-            Register Now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+
+        <!-- Zoholics-style CTA buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+          <a href="#register" class="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-lg text-white font-extrabold text-base uppercase tracking-wider btn-zoholics shadow-lg hover:shadow-xl transition-all hover:scale-105">
+            GRAB YOUR SEAT HERE
           </a>
-          <a href="#agenda" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-gray-700 bg-white border border-gray-200 transition-all duration-200 hover:border-green-300 hover:text-green-700 hover:shadow-md">
-            View Agenda <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+          <a href="#agenda" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg text-gray-700 font-semibold text-base bg-white/70 border border-gray-200 hover:bg-white transition-all shadow-sm">
+            View Agenda ↓
           </a>
         </div>
-        <a href="https://wa.me/?text=I%20would%20like%20to%20register%20for%20Zoho%20Classes%20Education%20Innovation%20Workshop%202026" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:opacity-90" style="background:#25D366;box-shadow:0 2px 12px rgba(37,211,102,0.35)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Register via WhatsApp
-        </a>
+
+        <!-- WhatsApp + social row -->
+        <div class="flex items-center gap-3 justify-center lg:justify-start mt-6">
+          <a href="https://wa.me/?text=Register%20for%20Zoho%20Classes%20Education%20Innovation%20Workshop%202026" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-md transition-all hover:scale-110" style="background:#25D366">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-md transition-all hover:scale-110" style="background:#0A66C2">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://twitter.com/zoho" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-md transition-all hover:scale-110" style="background:#000">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.zoho.com/classes/" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-md transition-all hover:scale-110" style="background:#089949">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </a>
+        </div>
       </div>
-      <!-- Right: Registration Form -->
-      <div class="relative flex justify-center lg:justify-end section-reveal">
+
+      <!-- RIGHT: Registration form card (hidden on mobile, shown on md+) -->
+      <div class="hidden lg:flex relative justify-end section-reveal">
         <div class="w-full max-w-md">
-          <div class="rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
+          <div class="rounded-3xl overflow-hidden shadow-2xl" style="border:1px solid rgba(255,255,255,0.7)">
             <div class="px-6 py-5 text-white" style="background:linear-gradient(135deg,#0B3D23,#089949)">
               <div class="flex items-start justify-between gap-3 mb-3">
                 <div>
@@ -153,7 +203,7 @@
                   <h3 class="text-white font-black text-base leading-snug">Reserve Your Seat</h3>
                   <p class="text-green-200 text-xs mt-1">July 13, 2026 · In-Person · Free</p>
                 </div>
-                <div class="flex-shrink-0 rounded-xl px-3 py-2 text-center" style="background:#E8442B;box-shadow:0 4px 12px rgba(232,68,43,0.4)">
+                <div class="flex-shrink-0 rounded-xl px-3 py-2 text-center" style="background:#C8362E;box-shadow:0 4px 12px rgba(200,54,46,0.4)">
                   <p class="text-white font-black text-lg leading-none">150</p>
                   <p class="text-red-100 text-xs font-medium">Seats Only</p>
                 </div>
@@ -232,20 +282,24 @@
                 </label>
                 <p class="hidden text-red-500 text-xs mt-1 ml-5" id="herr-consent">Please accept to continue.</p>
               </div>
-              <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90 hover:scale-105" style="background:linear-gradient(135deg,#E8442B,#F47B20);box-shadow:0 4px 20px rgba(232,68,43,0.3)">
-                Reserve My Seat <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-sm font-bold text-white uppercase tracking-wider btn-zoholics transition-all hover:scale-105 shadow-md">
+                Reserve My Seat →
               </button>
               <p class="text-center text-gray-400 text-xs">🔒 Secure · Free · Certificate on Attendance</p>
             </form>
           </div>
         </div>
       </div>
+
     </div>
   </div>
+
+  <!-- Bottom wave transition to white -->
+  <div class="absolute bottom-0 left-0 right-0 h-16 pointer-events-none" style="background:linear-gradient(to bottom, transparent, rgba(255,255,255,0.5))"></div>
 </section>
 
 <!-- ===== TRUST STRIP ===== -->
-<section class="py-16 bg-white section-reveal" id="trust">
+<section class="py-16 section-teal section-reveal" id="trust">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <p class="text-green-700 font-semibold text-sm uppercase tracking-widest mb-3">Platform Capabilities</p>
@@ -446,7 +500,7 @@
 </section>
 
 <!-- Speakers -->
-<section class="py-20 bg-white section-reveal" id="speakers">
+<section class="py-20 section-teal section-reveal" id="speakers">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <span class="inline-block px-4 py-1.5 rounded-full text-sm font-semibold text-green-700 bg-green-100 mb-4">Meet the Experts</span>
@@ -599,7 +653,7 @@
 </section>
 
 <!-- Who Should Attend -->
-<section class="py-20 bg-white section-reveal" id="attend">
+<section class="py-20 section-warm section-reveal" id="attend">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <span class="inline-block px-4 py-1.5 rounded-full text-sm font-semibold text-blue-700 bg-blue-100 mb-4">Attendance Criteria</span>
@@ -667,7 +721,7 @@
 </section>
 
 <!-- Register -->
-<section class="py-20 bg-white section-reveal" id="register">
+<section class="py-20 section-teal section-reveal" id="register">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10">
       <span class="inline-block px-4 py-1.5 rounded-full text-sm font-semibold text-green-700 bg-green-100 mb-4">Secure Your Seat</span>
@@ -750,7 +804,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="py-20 section-reveal" style="background:#F8FAFC" id="faq">
+<section class="py-20 section-warm section-reveal" id="faq">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
       <span class="inline-block px-4 py-1.5 rounded-full text-sm font-semibold text-gray-600 bg-gray-200 mb-4">FAQ</span>
@@ -873,10 +927,15 @@
 
 <script>
 // Navbar scroll
-const nav = document.getElementById('main-nav');
+const nav = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) nav.classList.add('nav-white');
-  else nav.classList.remove('nav-white');
+  if (window.scrollY > 60) {
+    nav.classList.add('nav-white');
+    nav.classList.remove('nav-transparent');
+  } else {
+    nav.classList.remove('nav-white');
+    nav.classList.add('nav-transparent');
+  }
 });
 
 // Mobile menu
